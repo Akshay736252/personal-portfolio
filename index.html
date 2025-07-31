@@ -9,398 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Internal CSS -->
-    <style>
-        /* General Styles */
-        :root {
-            --primary-color: #6C5CE7;
-            /* Soft Purple */
-            --secondary-color: #00B894;
-            /* Mint Green */
-            --background-color: #f9f9f9;
-            /* Light Gray */
-            --text-color: #2D3436;
-            /* Dark Gray */
-            --hover-color: #FF7675;
-            /* Coral */
-            --highlight-color: #6C5CE7;
-            /* Soft Purple */
-            --card-background: #fff;
-            /* White */
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            /* Light Shadow */
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        header {
-            background: var(--primary-color);
-            color: #fff;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header .logo h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .nav-links li a:hover {
-            background: var(--hover-color);
-            color: #fff;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger .line {
-            width: 25px;
-            height: 3px;
-            background: #fff;
-            margin: 4px 0;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: var(--primary-color);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background: var(--primary-color);
-            color: #fff;
-            padding: 100px 0;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero-text .highlight {
-            color: var(--highlight-color);
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-buttons .btn {
-            background: var(--highlight-color);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .hero-buttons .btn:hover {
-            background: var(--hover-color);
-        }
-
-        .hero-buttons .btn-resume {
-            background: var(--secondary-color);
-        }
-
-        .hero-buttons .btn-resume:hover {
-            background: var(--hover-color);
-        }
-
-        .hero-image img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 5px solid var(--highlight-color);
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        /* About Section */
-        .about-content {
-            background: var(--card-background);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .about-content ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .about-content ul li {
-            margin-bottom: 10px;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            background: #FFF3E0;
-            /* Light orange background color */
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .skill {
-            text-align: center;
-            padding: 20px;
-            background: var(--card-background);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px var(--shadow-color);
-        }
-
-        .skill i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .skill h3 {
-            font-size: 1.2rem;
-            margin: 0;
-            color: var(--text-color);
-        }
-
-        /* Projects Section */
-        .projects-section {
-            background: #E8F5E9;
-            /* Light green background color */
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .project {
-            background: var(--card-background);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px var(--shadow-color);
-        }
-
-        .project h3,
-        .project p {
-            color: var(--text-color);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: #E3F2FD;
-            /* Light blue background color */
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        .contact-section h2 {
-            text-align: center;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        form label {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        form input,
-        form textarea {
-            padding: 10px;
-            border: 2px solid var(--primary-color);
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        form input:focus,
-        form textarea:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 8px var(--secondary-color);
-            outline: none;
-        }
-
-        form button {
-            padding: 10px;
-            background: var(--primary-color);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .projects-section {
-            background: #F5F5F5;
-            /* Light gray background color */
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        .about-section {
-            background: #FAFAFA;
-            /* Light gray background color */
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        form button:hover {
-            background: var(--hover-color);
-            transform: translateY(-2px);
-        }
-
-        form button:active {
-            transform: translateY(0);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 10px;
-        }
-
-        .social-links a {
-            color: #fff;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--hover-color);
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -408,7 +18,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>𝓪𝓴𝓼𝓱𝓪𝔂</h1>
+                <h1>𝒜𝓀𝓈𝒽𝒶𝓎</h1>
             </div>
             <nav>
                 <ul class="nav-links" id="nav-links">
@@ -436,7 +46,7 @@
                         visualization, and problem-solving.</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn">Hire Me</a>
-                        <a href="Akshay (1).pdf" download="Akshay_Kanojia_Resume.pdf" class="btn btn-resume">Download My
+                        <a href="Akshay Kanojia Data Analyst Updated.pdf" download="Akshay_Kanojia_Resume.pdf" class="btn btn-resume">Download My
                             Resume</a>
                     </div>
                 </div>
@@ -475,26 +85,65 @@
                 <div class="skill">
                     <i class="fas fa-database"></i>
                     <h3>SQL</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%;"></div>
+                    </div>
                 </div>
                 <div class="skill">
                     <i class="fab fa-python"></i>
                     <h3>Python</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%;"></div>
+                    </div>
                 </div>
                 <div class="skill">
                     <i class="fas fa-file-excel"></i>
                     <h3>Excel</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
                 </div>
                 <div class="skill">
                     <i class="fas fa-chart-bar"></i>
                     <h3>Data Visualization</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
                 </div>
                 <div class="skill">
                     <i class="fas fa-chart-line"></i>
                     <h3>Tableau</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%;"></div>
+                    </div>
                 </div>
                 <div class="skill">
                     <i class="fab fa-git"></i>
                     <h3>Git</h3>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%;"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -547,70 +196,16 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/Akshay736252" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/akshay-kanojia-b84687289/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/KanojiaAks58597" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
-            <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 My Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Internal JavaScript -->
-    <script>
-        // Hamburger Menu
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close the hamburger menu after clicking a link (for mobile)
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-
-        // Form Submission
-        const contactForm = document.getElementById('contact-form');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                // Get form data
-                const formData = new FormData(contactForm);
-
-                // Send form data to Formspree
-                fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('Thank you for reaching out! I will get back to you soon.');
-                            contactForm.reset(); // Reset the form
-                        } else {
-                            alert('Oops! Something went wrong. Please try again.');
-                        }
-                    })
-                    .catch(error => {
-                        alert('Oops! Something went wrong. Please try again.');
-                    });
-            });
-        }
-    </script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 </body>
 
 </html>
